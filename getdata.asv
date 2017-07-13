@@ -1,0 +1,8 @@
+function data = getdata() 
+    bodies = read(datastore('competition_test_bodies.csv'));
+    ids = bodies(2:, 1)
+    btable = table(bodyID, articleBody, bodies(2:, :));
+    stances = read(datastore('competition_test_stances.csv'));
+    stable = table(headline, bodyID, stance, stances(2:, :));
+    data = join(bodies, stances];
+end
