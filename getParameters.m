@@ -1,5 +1,5 @@
-function table = getParameters(tsize)
-    data = getdata();
+function table = getParameters(bodyFile, stanceFile, tsize)
+    data = getdata(bodyFile, stanceFile);
     if (tsize == 'end')
         tsize = size(data);
         tsize = tsize(1);
