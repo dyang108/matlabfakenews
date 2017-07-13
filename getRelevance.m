@@ -3,7 +3,6 @@ function table = getRelevance(table)
     bodyWords = table.totalWords;
     headlines = table.headWords;
     headssize = size(headlines);
-%     display( headlines);
     for i = 1:headssize(1)
         cumSum = 0;
         wordsInHeadline = 0;
@@ -15,7 +14,7 @@ function table = getRelevance(table)
             hKey = char(array(j));
             if (isKey(body,hKey))
                 freq = body(hKey);
-                cumSum = cumSum + body(hKey);
+                cumSum = cumSum + freq;
                 wordsInHeadline = wordsInHeadline + 1;
             end
         end

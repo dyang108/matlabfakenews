@@ -1,7 +1,14 @@
 function table = getParameters(tsize)
     data = getdata();
-    table = getWordBags(data(1:tsize));
+    if (tsize == 'end')
+        tsize = size(data);
+        tsize = tsize(1);
+    end
+    table = getWordBags(data(1:tsize, :));
     table.relevance = zeros(tsize, 1);
     table.headlineWordsInArticle = zeros(tsize, 1);
-    table = getRelevance(table)
+    table = getRelevance(table);
+    table.related = num2cell(string(table{:,4}) ~= 'unrelated');
+    for i = 1:tsize
+        if (string(table.related{i} != 'unrelated')
 end
