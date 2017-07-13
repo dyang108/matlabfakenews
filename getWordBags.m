@@ -16,7 +16,7 @@ function wordCounts = getWordBag(articleBody)
     wordBag = bagOfWords(doc);
     wordBag = removeWords(wordBag, [stopWords,".","?","!",",",";",":"]);
     fullCounts = full(wordBag.Counts);
-    wordCounts = [fullCounts; wordBag.Vocabulary];
+    wordCounts = containers.Map(convertStringsToChars(wordBag.Vocabulary), num2cell(fullCounts));
 end
 
 function importantHeadline = getImportantHeadline(origHead)
