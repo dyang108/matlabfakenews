@@ -1,0 +1,5 @@
+function [] = ml(trainData, testData)
+  mdlNB = fitcnb(trainData,'related');
+  predictedGroups = predict(mdlNB,testData);
+  testData.related = predictedGroups;
+end
