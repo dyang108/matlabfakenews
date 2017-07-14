@@ -1,0 +1,9 @@
+function allResults = checkAllAgree(table, model, sents)
+    s = size(table);
+    orig = table.Stance;
+    final = cell(s(1), 1);
+    for i = 1:s(1)
+        final{i} = doesAgree(table(i).Headline{1}, table{i}.articleBody{1}, model, sents);
+    end
+    allResults = table(orig, final);
+end

@@ -19,11 +19,11 @@ function sentimentScore = sentScore(wordBag, sents)
         hKey = lower(char(vocab(i)));
         if (isKey(sents, hKey))
             if (strcmp(sents(hKey), 'positive'))
-                sentimentScore = sentimentScore + counts(i);
-%                 display(hKey);
+                if ~strcmp(hKey, 'trump')
+                    sentimentScore = sentimentScore + counts(i);
+                end
             elseif (strcmp(sents(hKey), 'negative'))
                 sentimentScore = sentimentScore - counts(i);
-%                 display(hKey);
             end
         end
     end
