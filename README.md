@@ -18,3 +18,15 @@ stance along with the computed stance
 
 getGrade takes these results and calculates a percentage score for the number
 of correctly classified (headline, article) pairs.
+
+getFullGrade runs everything without the need to load anything. This will give
+the full score as long as the demoObjects.mat and competition test csvs are
+in the folder
+
+competitionResults.mat contains the results from running getFullGrade over
+the whole competition dataset.
+
+## improvements
+we should consider using ml to categorize the relevant articles into the correct
+bias categories. This involves finding another relevant input parameter.
+Since headlines are rather short, this is rather difficult.
