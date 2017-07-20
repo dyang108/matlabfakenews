@@ -32,13 +32,14 @@ function agreesWithHeadline = doesAgree(headline, body, model, sents)
     bodySent = bodySent / numWords;
     headSent = sentiments.headSent{1} / headNum;
     diff = abs(bodySent - headSent);
-    if sign(bodySent) ~= sign(headSent) && diff > 0.15
+    diffConst = 0.15;
+    if sign(bodySent) ~= sign(headSent) && diff > diffConst
         agreesWithHeadline = 'disagree';
-    elseif sign(bodySent) ~= sign(headSent) && diff <= 0.15
+    elseif sign(bodySent) ~= sign(headSent) && diff <= diffConst
         agreesWithHeadline = 'discuss';
-    elseif sign(bodySent) == sign(headSent) && diff < .15
+    elseif sign(bodySent) == sign(headSent) && diff < diffConst
         agreesWithHeadline = 'agree';
-    elseif diff > .15
+    elseif diff > diffConst
         agreesWithHeadline = 'disagree';
     else
         agreesWithHeadline = 'discuss';
