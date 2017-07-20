@@ -25,7 +25,8 @@ function [] = plotResults(results)
     set(gca, 'YScale', 'log');
     ax1 = gca;
     ax1.Title.String =  'Results of empirical analysis of test articles';
-    legend('Total articles', 'Articles categorized correctly');
+    l = legend('Total articles', 'Articles categorized correctly');
+    l.Location = 'northwest';
     subplot(2, 1, 2);
     bar(c, uncat);
     ax2 = gca;
